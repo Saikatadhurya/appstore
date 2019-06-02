@@ -5,6 +5,9 @@ $database = new Database();
 $db = $database->getConnection();
 $search = new Search($db);
  session_start();
+ if (!isset($_SESSION['email'])) {
+  	header('location: login.php');
+  }
 ?>
 
   <!doctype html>

@@ -1,5 +1,8 @@
 <?php $pagename="index";
 session_start();
+if (!isset($_SESSION['email'])) {
+  	header('location: login.php');
+  }
 include_once 'inc/conn.php';
 include_once 'inc/search.php';
 $database = new Database();

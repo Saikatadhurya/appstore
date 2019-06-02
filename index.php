@@ -18,7 +18,7 @@ $search = new Search($db);
 	 <link rel="stylesheet" href="css/style.css">
 	 <link rel="stylesheet" href="css/search.css">
     <link rel="icon" href="image/icon.png" type="image/gif" sizes="16x16">
-	<title>MyApp</title>
+	<title>AppStore</title>
 	<style>
 	.flip-card {
   background-color: transparent;

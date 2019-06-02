@@ -168,8 +168,8 @@ $search = new Search($db);
 <hr></div>
 <div class="container">
 	<div  id="appSummary">
-	<h1 class="shadow p-3 mb-5 bg-white rounded" style="border-style: solid;border-width: 3px; padding:10px;margin-top:100px;">Explore Some Awesome Apps Here</h1>
-	
+	<h1 class="shadow p-3 mb-5 bg-white rounded" style="border-style: solid;border-width: 3px; padding:10px;margin-top:100px;">Explore Some Awesome <i class="fab fa-app-store"></i>pps Here </h1>
+	<p>Download Now For FREE !!!</p>
 	</div>
 	<div class="row">
 <?php	$stmt = $search->home();

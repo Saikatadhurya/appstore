@@ -1,5 +1,10 @@
 <?php $pagename="index";
 session_start();
+include_once 'inc/conn.php';
+include_once 'inc/search.php';
+$database = new Database();
+$db = $database->getConnection();
+$search = new Search($db);
 ?>
 <!doctype html>
 <html lang="en">
@@ -14,7 +19,99 @@ session_start();
 	 <link rel="stylesheet" href="css/search.css">
     <link rel="icon" href="image/icon.png" type="image/gif" sizes="16x16">
 	<title>MyApp</title>
-	
+	<style>
+	.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #ffffff;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+/* Three columns side by side */
+.about.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media screen and (max-width: 650px) {
+  .about .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+/* Add some shadows to create a card effect */
+.about .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Some left and right padding inside the container */
+.about .container {
+  padding: 0 16px;
+}
+
+/* Clear floats */
+.about .container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.about .title {
+  color: grey;
+}
+
+.about .button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.about .button:hover {
+  background-color: #555;
+}
+
+</style>
   </head>
   <body data-spy="scroll" data-target="#navbar">
   <?php include("inc/header.php"); ?>
@@ -61,40 +158,58 @@ session_start();
 </form>
 <center><div class="zoom"><a href="#about" class="zoom"><img src="image/arr.gif" style="height:90px;margin-top:150px;padding:10px;background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));"></a></div></center>
 </div>
-<div id="about">
+<div id="updates">
 <hr></div>
 <div class="container">
 	<div  id="appSummary">
-	<h1 class="shadow-lg p-3 mb-5 bg-white rounded" style="border-style: solid;border-width: 5px; padding:10px;margin-top:100px;">Explore Some Awesome Apps <i class="far fa-flushed"></i></h1>
-	<p class="lead">Summary, once again, of your app's awesomeness</p>
+	<h1 class="shadow p-3 mb-5 bg-white rounded" style="border-style: solid;border-width: 3px; padding:10px;margin-top:100px;">Explore Some Awesome Apps Here</h1>
+	
 	</div>
-	<div class="card-deck">
-  <div class="card">
-    <img class="card-img-top" src="image/book.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title"><i class="fas fa-anchor"></i>Multi-touch</h5>
-      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
+	<div class="row">
+<?php	$stmt = $search->home();
   
-  <div class="card">
-    <img class="card-img-top" src="image/book.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title"><i class="fas fa-bicycle"></i>Video calling</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+  {
+	   extract($row);?>
+	   <div class="col-md-4">
+	   <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="image/apps/<?php echo"{$image}"?>" alt="Avatar" style="width:300px;height:300px; padding:1em;">
     </div>
-  </div>
-  <div class="card">
-    <img class="card-img-top" src="image/book.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title"><i class="fas fa-cart-arrow-down"></i>Media support</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    <div class="flip-card-back">
+      <h1><?php echo "{$app_name}"?></h1> 
+      
+      <a href="download.php?id=<?php echo "{$app_id}"?>" class="btn btn-md btn-outline-light">Download Now</a>
+	  <p style="padding:5px;"><?php echo "{$description}"?></p> 
     </div>
   </div>
 </div>
+</div>
+  
+  
+  <?php 
+  }
+  ?>
+</div>
+<div id="about">
+<hr></div>
+<div class="about">
+<h1 class="shadow-lg p-3 mb-5 bg-white rounded" style="border-style: solid;border-width: 8px; padding:10px;margin-top:100px;"><center>About Developer</center></h1>
+ <div class="col-md-12">
+    <div class="card">
+     <center> <img src="image/sai.jpg" alt="Saikat" style="width:25%; margin:10px;border-radius:10px;">
+      <div class="container">
+        <h2>Saikat Adhurya</h2>
+        <p class="title">CEO &amp; Founder</p>
+        <p>A very energitic and enthusiastic person. Interested in Web Development.</p>
+     <a href="https://www.facebook.com/saikat.adhurya.0101">  <i class="fab fa-facebook" style="font-size: 3em;;"></i></a>
+     <a href="sakatadhuryabirds@gmail.com">  <i class="fas fa-envelope-square" style="font-size: 3em;;"></i></a>
+     <a href="https://www.linkedin.com/in/saikat-adhurya-b3a968103/">  <i class="fab fa-linkedin" style="font-size: 3em;;"></i></a>
+      </div></center>
+    </div>
+  </div>
+  </div>
 <div id="contact">
 <hr></div>
 <div class="container contact-form" style="margin-top:80px;">

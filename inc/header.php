@@ -25,13 +25,14 @@
 	  <li class="nav-item <?php if ($pagename=='app') { echo 'active';}?>">
         <a class="nav-link" href="apps.php"><i class="fab fa-app-store"></i> Apps</a>
       </li>
+	    <li class="nav-item <?php if ($pagename=='newupdates') { echo 'active';}?>">
+        <a class="nav-link" href="index.php#updates"><i class="fas fa-check-circle"></i> New Updates</a>
+      </li>
 	   <li class="nav-item">
          <a class="nav-link" href="index.php#contact"><i class="fas fa-phone-square"></i> Contact</a>
       </li>
 	 
-	  <li class="nav-item <?php if ($pagename=='newupdates') { echo 'active';}?>">
-        <a class="nav-link" href="newupdates.php"><i class="fas fa-check-circle"></i> New Updates</a>
-      </li>
+	
 	    
 	 
       <li class="nav-item dropdown">

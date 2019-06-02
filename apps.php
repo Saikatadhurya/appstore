@@ -47,7 +47,7 @@ $search = new Search($db);
   <img src="image/apps/<?php echo"{$image}"?>" alt="sample57" />
   <figcaption>
     <h3><?php echo "{$app_name}"?></h3>
-    <p>All this modern technology just makes people try to do everything at once.</p>
+    <p><?php echo "{$description}"?></p>
     <div class="price">
       
     </div>
@@ -75,7 +75,7 @@ $search = new Search($db);
   <img src="image/apps/<?php echo"{$image}"?>" alt="sample57" />
   <figcaption>
     <h3><?php echo "{$app_name}"?></h3>
-    <p>All this modern technology just makes people try to do everything at once.</p>
+    <p><?php echo "{$description}"?></p>
     <div class="price">
       
     </div>

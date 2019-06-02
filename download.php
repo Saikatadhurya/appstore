@@ -67,7 +67,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                     <h6>
 									<?php echo "{$company}" ?>
                                     </h6>
-                                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                                    <br><br><br>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
@@ -75,11 +75,20 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                 <li class="nav-item">
                                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Rating</a>
                                 </li>
+								<li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="false">Description</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Download"/>
+					<?php if ($sizemob!=0){?>
+                        <a class="btn btn-md btn-outline-danger profile-edit-btn">Download for Mobile</a><br>
+					<?php } ?>
+					<?php if ($sizepc!=0){?>
+                        <a class="btn btn-md btn-outline-success profile-edit-btn">Download for PC</a>
+						<?php } ?>
+                        
                     </div>
                 </div>
                 <div class="row">
@@ -91,10 +100,18 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Version</label>
+                                                <label>Version for PC</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>1.0.1</p>
+                                                <p><?php echo "{$app_version_pc}" ?></p>
+                                            </div>
+                                        </div>
+										<div class="row">
+                                            <div class="col-md-6">
+                                                <label>Version for Mobile</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><?php echo "{$app_version_mob}" ?></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -107,7 +124,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Downloads</label>
+                                                <label>Total Downloads</label>
                                             </div>
                                             <div class="col-md-6">
                                                 <p>100</p>
@@ -115,10 +132,18 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Download Size</label>
+                                                <label>Download Size for Mobile</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>10.4 MB</p>
+                                                <p><?php echo "{$sizemob}" ?> MB</p>
+                                            </div>
+                                        </div>
+										 <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Download Size for PC</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><?php echo "{$sizepc}" ?> MB</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -126,12 +151,27 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                                 <label>Offered By</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Web Developer and Designer</p>
+                                                <p><?php echo "{$company}" ?></p>
                                             </div>
                                         </div>
                             </div>
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                       
+								 <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Global Rating</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><?php echo "{$rating}" ?>/10</p>
+                                            </div>
+                                        </div>
+                                </div>  
+								<div class="tab-pane fade" id="description" role="tabpanel" aria-labelledby="description-tab">
+								 <div class="row">
+                                            
+                                            <div class="col-md-12">
+                                                <p><?php echo "{$description}" ?></p>
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
                         </div>

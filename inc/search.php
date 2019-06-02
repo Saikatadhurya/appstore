@@ -94,6 +94,19 @@ class Search{
  
         return $stmt;
     }
+	function home(){
+        //select all data
+        $query = "SELECT
+                    *
+                FROM
+                    " . $this->table_name . "
+                LIMIT 3";
+ 
+       $stmt = $this->conn->prepare( $query );
+        $stmt->execute();
+ 
+        return $stmt;
+    }
 	
 
 	

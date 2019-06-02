@@ -94,4 +94,6 @@
 	 .right {margin-left:500px;} 
 	 @media only screen and (max-width: 800px) {
 		.right {margin-left:0px;}  
+		.jumbotron{
+	   background-image:url(../image/background2.jpg);
 	 }

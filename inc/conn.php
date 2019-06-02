@@ -2,10 +2,10 @@
 class Database{
   
     // specify your own database credentials
-    private $host = "localhost";
-    private $db_name = "appstoredb";
-    private $username = "root";
-    private $password = "";
+    private $host = "sql9.freemysqlhosting.net";
+    private $db_name = "sql9294253";
+    private $username = "sql9294253";
+    private $password = "XDzrdauqJ6";
     public $conn;
   
     // get the database connection

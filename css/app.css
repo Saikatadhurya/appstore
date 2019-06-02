@@ -33,8 +33,7 @@
   position: relative;
 }
 @media screen and (max-width: 800px) {
-	.snip1423 {width:90%;
-	margin-left:1em;}
+	.snip1423 {width:90%; margin-left:1em;}
 	
 }
 .snip1423 figcaption {

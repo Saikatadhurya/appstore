@@ -43,6 +43,7 @@ $search = new Search($db);
   {
 	   extract($row);
 	  ?>
+	  
 <figure class="snip1423">
   <img src="image/apps/<?php echo"{$image}"?>" alt="sample57" />
   <figcaption>

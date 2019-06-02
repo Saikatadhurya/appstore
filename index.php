@@ -110,14 +110,21 @@ $search = new Search($db);
 .about .button:hover {
   background-color: #555;
 }
-
+.downarrow img{
+	height:120px;margin-top:150px;padding:10px;
+}
+@media screen and (max-width: 800px) {
+	.downarrow img{
+	height:80px;margin-top:0px;padding:10px;
+}
+}
 </style>
   </head>
   <body data-spy="scroll" data-target="#navbar">
   <?php include("inc/header.php"); ?>
   
 <div class="jumbotron" id="jumbotron">
-  <h1 class="display-4 white">Android and PC Apps Here !</h1>
+  <h1 class="display-4 white">Android and PC Apps are Here !</h1>
   <p class=" white">This is why you should download this fantastic app!</p>
   <?php if (isset($_SESSION['email'])){?>
   <div class="alert alert-success" style="max-width:400px;"> Welcome <?php echo $_SESSION['email'];?></div>
@@ -162,7 +169,7 @@ $search = new Search($db);
     </div>
   </div>
 </form>
-<center><div class="zoom"><a href="#about" class="zoom"><img src="image/arr.gif" style="height:90px;margin-top:150px;padding:10px;background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));"></a></div></center>
+<center><div class="zoom downarrow"><a href="#about" class="zoom"><img src="image/arr.gif"></a></div></center>
 </div>
 <div id="updates">
 <hr></div>

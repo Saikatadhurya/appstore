@@ -1,0 +1,50 @@
+#header {
+	width:100%;
+	background:#FF9A00;
+	color:#FFFFFF;
+	text-align:center;
+	font-family:calibri;
+	font-size:30px;
+	border-bottom:6px solid blue;
+	padding:3px;
+	margin:0;
+}
+#aside{
+	width:20%;
+	height:100%;
+	float:left;
+	background:#FFCC00;
+	color:#FFFFFF;
+	text-align:center;
+	font-family:calibri;
+	font-size:25px;
+	border-right:6px solid blue;
+	padding:3px;
+	margin:0;
+}
+aside a:link,a:visited{
+	color:#009966;
+}
+#nav_menu_top{
+		width:100%;
+	background:#FAFEC2;
+	color:#000066;
+	text-align:center;
+	font-family:calibri;
+	font-size:30px;
+	border-bottom:6px solid blue;
+	padding:3px;
+	margin:0;
+}
+#container{
+		width:78.5%;
+		height:100%;	
+		float:right;
+		background:#CCCCCC;
+	color:#000066;
+	text-align:center;
+	font-family:calibri;
+	font-size:30px;
+	padding:3px;
+	margin:0;
+}

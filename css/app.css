@@ -20,6 +20,7 @@
   transition: all 0.2s ease-out;
   
 }
+
 .snip1423 * {
   -webkit-box-sizing: padding-box;
   box-sizing: padding-box;
@@ -30,6 +31,11 @@
   max-width: 100%;
   vertical-align: top;
   position: relative;
+}
+@media screen and (max-width: 800px) {
+	.snip1423 {width:90%;
+	margin-left:1em;}
+	
 }
 .snip1423 figcaption {
   padding: 20px 15px;
@@ -92,4 +98,4 @@
 .snip1423.hover i {
   background-color: #2980b9;
 }
-/* Demo purposes only */
+

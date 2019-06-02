@@ -115,9 +115,15 @@ $search = new Search($db);
   </head>
   <body data-spy="scroll" data-target="#navbar">
   <?php include("inc/header.php"); ?>
+  
 <div class="jumbotron" id="jumbotron">
   <h1 class="display-4 white">Android and PC Apps Here !</h1>
   <p class=" white">This is why you should download this fantastic app!</p>
+  <?php if (isset($_SESSION['email'])){?>
+  <div class="alert alert-success" style="max-width:400px;"> Welcome <?php echo $_SESSION['email'];?></div>
+  
+  
+  <?php } ?>
   <hr class="my-4">
   <p class=" white"><b>Want to know more? Join us !!</b></p>
   <form>

@@ -83,10 +83,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     </div>
                     <div class="col-md-2">
 					<?php if ($sizemob!=0){?>
-                        <a class="btn btn-md btn-outline-danger profile-edit-btn">Download for Mobile</a><br>
+                        <a href="<?php echo "{$linkmobile}" ?>" class="btn btn-md btn-outline-danger profile-edit-btn">Download for Mobile</a><br>
 					<?php } ?>
 					<?php if ($sizepc!=0){?>
-                        <a class="btn btn-md btn-outline-success profile-edit-btn">Download for PC</a>
+                        <a href="<?php echo "{$linkpc}" ?>" class="btn btn-md btn-outline-success profile-edit-btn">Download for PC</a>
 						<?php } ?>
                         
                     </div>

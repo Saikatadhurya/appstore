@@ -89,6 +89,7 @@ if(isset($_POST['submit']))
 		$company = $_POST['company'];
 		$keyword = $_POST['keyword'];
 		$description = $_POST['description'];
+		$description = mysqli_real_escape_string($db, $_POST['description']);
 		$image_name = $_FILES['image']['name'];
 		$image_type = $_FILES['image']['type'];
 		$image_size = $_FILES['image']['size'];
